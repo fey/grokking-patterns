@@ -2,23 +2,23 @@
 
 namespace Fey\Patterns\Behavioral\Strategy;
 
-use Fey\Patterns\Behavioral\Strategy\Strategies\AdultEmployeeStrategy;
-use Fey\Patterns\Behavioral\Strategy\Strategies\LessThan18Strategy;
-use Fey\Patterns\Behavioral\Strategy\Strategies\ExperiencedEmployeeStrategy;
+use Fey\Patterns\Behavioral\Strategy\Strategies\AdultEmployeeCalculator;
+use Fey\Patterns\Behavioral\Strategy\Strategies\LessThan18Calculator;
+use Fey\Patterns\Behavioral\Strategy\Strategies\ExperiencedEmployeeCalculator;
 
-class CalculateSalary implements CalculateSalaryStrategyInterface
+class SalaryCalculator implements SalaryCalculatorInterface
 {
     private const YEARS_OF_EXPERIENCED = 10;
     private const RETIREMENT_AGE_YEARS = 65;
 
-    private AdultEmployeeStrategy $adultEmployeeStrategy;
-    private LessThan18Strategy $lessThan18Strategy;
-    private ExperiencedEmployeeStrategy $experiencedEmployeeStrategy;
+    private SalaryCalculatorInterface $adultEmployeeStrategy;
+    private SalaryCalculatorInterface $lessThan18Strategy;
+    private SalaryCalculatorInterface $experiencedEmployeeStrategy;
 
     public function __construct(
-        AdultEmployeeStrategy $adultEmployeeStrategy,
-        LessThan18Strategy $lessThan18Strategy,
-        ExperiencedEmployeeStrategy $experiencedEmployeeStrategy,
+        SalaryCalculatorInterface $adultEmployeeStrategy,
+        SalaryCalculatorInterface $lessThan18Strategy,
+        SalaryCalculatorInterface $experiencedEmployeeStrategy,
     )
     {
         $this->adultEmployeeStrategy = $adultEmployeeStrategy;

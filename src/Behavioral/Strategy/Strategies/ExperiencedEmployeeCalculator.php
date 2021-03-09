@@ -2,10 +2,10 @@
 
 namespace Fey\Patterns\Behavioral\Strategy\Strategies;
 
-use Fey\Patterns\Behavioral\Strategy\CalculateSalaryStrategyInterface;
+use Fey\Patterns\Behavioral\Strategy\SalaryCalculatorInterface;
 use Fey\Patterns\Behavioral\Strategy\Employee;
 
-class ExperiencedEmployeeStrategy implements CalculateSalaryStrategyInterface
+class ExperiencedEmployeeCalculator implements SalaryCalculatorInterface
 {
     private const EXPERIENCED_WORK_TIME_RATE = 1.25;
 

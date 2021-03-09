@@ -2,7 +2,7 @@
 
 namespace Fey\Patterns\Behavioral\Strategy;
 
-interface CalculateSalaryStrategyInterface
+interface SalaryCalculatorInterface
 {
     public function calculate(Employee $employee): int;
 }

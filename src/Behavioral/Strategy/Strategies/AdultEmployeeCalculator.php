@@ -2,10 +2,10 @@
 
 namespace Fey\Patterns\Behavioral\Strategy\Strategies;
 
-use Fey\Patterns\Behavioral\Strategy\CalculateSalaryStrategyInterface;
+use Fey\Patterns\Behavioral\Strategy\SalaryCalculatorInterface;
 use Fey\Patterns\Behavioral\Strategy\Employee;
 
-class AdultEmployeeStrategy implements CalculateSalaryStrategyInterface
+class AdultEmployeeCalculator implements SalaryCalculatorInterface
 {
     private const BONUS_PAY = 1000;
 

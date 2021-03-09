@@ -30,10 +30,28 @@ $button->press(); // send email
 Стратегия (англ. Strategy) — поведенческий шаблон проектирования, предназначенный для определения семейства алгоритмов, инкапсуляции каждого из них и обеспечения их взаимозаменяемости. Это позволяет выбирать алгоритм путём определения соответствующего класса. Шаблон Strategy позволяет менять выбранный алгоритм независимо от объектов-клиентов, которые его используют.
 По типу клиента (или по типу обрабатываемых данных) выбрать подходящий алгоритм, который следует применить. Если используется правило, которое не подвержено изменениям, нет необходимости обращаться к шаблону «стратегия».
 
-
 ```php
 <?php
 
+use Fey\Patterns\Behavioral\Strategy\Employee;
+use Fey\Patterns\Behavioral\Strategy\SalaryCalculator;
+use Fey\Patterns\Behavioral\Strategy\Strategies\AdultEmployeeCalculator;
+use Fey\Patterns\Behavioral\Strategy\Strategies\ExperiencedEmployeeCalculator;
+use Fey\Patterns\Behavioral\Strategy\Strategies\LessThan18Calculator;
 
+function calculateSalary($employee): int
+{
+    $calculator = new SalaryCalculator(
+        new AdultEmployeeCalculator(),
+        new LessThan18Calculator(),
+        new ExperiencedEmployeeCalculator(),
+    );
+    
+    return $calculator->calculate($employee);
+}
+
+$employee = new Employee();
+
+$salary = calculateSalary($employee);
 
 ```
