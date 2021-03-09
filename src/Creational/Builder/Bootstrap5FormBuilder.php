@@ -10,7 +10,7 @@ class Bootstrap5FormBuilder extends FormBuilder
 <div class="mb-3">
   <label class="form-label">
   ${label}
-  <input type="email" class="form-control" placeholder="name@example.com" value="$value" name="${}">
+  <input type="email" class="form-control" placeholder="name@example.com" value="$value" name="${name}">
   </label>
 </div>
 HTML;

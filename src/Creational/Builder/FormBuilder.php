@@ -6,11 +6,13 @@ class FormBuilder
 {
     protected array $formParts = [];
 
-    public function open($url): self
+    public static function open($url): self
     {
-        $this->formParts[] = "<form action=\"{$url}\">";
+        $builder = new static();
 
-        return $this;
+        $builder->formParts[] = "<form action=\"{$url}\">";
+
+        return $builder;
     }
 
     public function text($name, $value, $label): self
@@ -38,6 +40,6 @@ class FormBuilder
     {
         $this->formParts[] = '</form>';
 
-        return implode('\n', $this->formParts);
+        return implode("\n", $this->formParts);
     }
 }

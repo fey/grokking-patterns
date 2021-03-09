@@ -12,6 +12,6 @@ class Bootstrap5FormFactory extends FormFactory
         $wrapperOpen = '<div class="mb-3">';
         $wrapperClose = '</div>';
 
-        return implode('\n', [$wrapperOpen, $label, $input, $wrapperClose]);
+        return implode("\n", [$wrapperOpen, $label, $input, $wrapperClose]);
     }
 }

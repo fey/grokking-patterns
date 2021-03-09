@@ -12,15 +12,15 @@
 
 use Fey\Patterns\Creational\AbstractFactory\FormFactoryInterface as FormFactory;
 
-function registrationForm($name, $password): string
+function registrationForm($name, $email, $password): string
 {
     $url = '/register';
     $form = [];
     
     $form[] = FormFactory::open($url);
-    $form[] = FormFactory::text('Username', 'username', '');
-    $form[] = FormFactory::text('Email', 'email', '');
-    $form[] = FormFactory::text('Password', 'password', '');
+    $form[] = FormFactory::text('Username', 'username', $name);
+    $form[] = FormFactory::text('Email', 'email', $email);
+    $form[] = FormFactory::text('Password', 'password', $password);
     $form[] = FormFactory::close();
     
     return implode('\n', $form);
@@ -33,3 +33,20 @@ function registrationForm($name, $password): string
 Отделяет конструирование сложного объекта от его представления так, что в результате одного и того же процесса конструирования могут получаться разные представления.
 
 
+```php
+<?php
+
+use Fey\Patterns\Creational\Builder\FormBuilder;
+
+function registrationForm($name, $email, $password): string
+{
+    $url = '/register';
+    
+    return FormBuilder::open($url)
+        ->text('username', $name, 'Username')
+        ->text('first_name', $name, 'First Name')
+        ->email('email', $email, 'Email')
+        ->password('password', $password, 'Password')
+        ->close();
+}
+```
