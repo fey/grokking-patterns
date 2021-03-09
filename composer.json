@@ -1,0 +1,14 @@
+{
+    "name": "feycot/patterns",
+    "description": "",
+    "authors": [
+        {
+            "name": "feycot",
+            "email": "feycot@gmail.com"
+        }
+    ],
+    "autoload": {
+        "Fey\\Patterns\\": "src/"
+    },
+    "require": {}
+}
